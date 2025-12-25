@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mood-Based Productivity Tracker</title>
+  <title>Today's Mood</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <main class="app">
+    <nav class="nav">
+      <a class="active" href="index.html">Today</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="history.html">History</a>
+    </nav>
+
     <header class="header">
       <h1>How are you feeling today?</h1>
-      <p>Select your current mood to get productivity suggestions</p>
+      <p>Select your mood to get productivity suggestions</p>
     </header>
 
     <section class="mood-container">
@@ -21,27 +27,16 @@
       <div class="mood-card" data-mood="stressed">😠 Stressed</div>
     </section>
 
-    <section class="output">
-      <h2 id="selectedMoodText">No mood selected</h2>
-    </section>
+    <h3 id="selectedMoodText">No mood selected</h3>
 
     <section class="suggestions">
-  <h3>Suggested Focus</h3>
-  <ul id="taskList"></ul>
-</section>
+      <h3>Suggested Focus</h3>
+      <ul id="taskList"></ul>
+    </section>
 
-<section class="score">
-  <h3>Today's Productivity Score</h3>
-  <div id="scoreValue">--</div>
-</section>
-
-<section class="history">
-  <h3>Mood History</h3>
-  <ul id="historyList"></ul>
-</section>
-
+    <button id="saveBtn">Save Today’s Mood</button>
   </main>
 
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

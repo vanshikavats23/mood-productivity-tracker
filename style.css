@@ -4,148 +4,150 @@
   box-sizing: border-box;
   font-family: system-ui, sans-serif;
 }
-
 body {
   background: #f5f7fb;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
 }
+
+
 
 .app {
   background: #ffffff;
-  padding: 2.2rem;
   width: 100%;
-  max-width: 480px;   /* KEY FIX */
-  border-radius: 18px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+  max-width: 520px;
+  padding: 2.2rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
+.nav a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  font-weight: 500;
+}
 
+.nav .active {
+  color: #4f46e5;
+  font-weight: 600;
+}
 .header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.2rem;
 }
 
 .header h1 {
-  font-size: 1.4rem;
-  margin-bottom: 0.4rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .header p {
   font-size: 0.9rem;
   color: #666;
 }
-
 .mood-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.2 rem;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
 }
-
 
 .mood-card {
-  padding: 1.1rem;
-  font-size: 0.95rem;
+  padding: 0.9rem;
+  background: #f1f3f8;
   border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
 }
 
-/* .mood-card {
-  padding: 1rem;
-  text-align: center;
-  border-radius: 12px;
-  cursor: pointer;
-  background: #f0f2f7;
-  transition: all 0.25s ease;
-  font-weight: 500;
-} */
-
 .mood-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .mood-card.active {
   background: #4f46e5;
-  color: #fff;
+  color: #ffffff;
 }
 
-.output {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.output h2 {
-  font-size: 1rem;
-  color: #333;
-}
 .suggestions {
-  margin-top: 1.5rem;
   background: #f9fafc;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin-bottom: 2rem;
 }
 
 .suggestions h3 {
   font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
-.suggestions ul {
-  list-style: none;
+  margin-bottom: 0.8rem;
 }
 
 .suggestions li {
   background: #ffffff;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  margin-bottom: 0.4rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
   font-size: 0.85rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
 }
+button {
+  width: 100%;
+  padding: 0.9rem;
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .score {
   margin-top: 1.5rem;
-  padding: 1rem;
   background: #eef2ff;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
 }
 
 #scoreValue {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: bold;
   color: #4f46e5;
-  margin-top: 0.5rem;
 }
 
-.history {
+.insights {
   margin-top: 1.5rem;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 12px;
 }
 
-.history h3 {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
-.history ul {
+.history-list {
   list-style: none;
+  margin-top: 1rem;
 }
 
-
-.history li {
-  background: #ffffff;
-  padding: 0.9rem 1rem;
+.history-list li {
+  background: #fff;
+  padding: 0.8rem;
   border-radius: 10px;
-  font-size: 0.85rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;   /* ADD */
+  margin-bottom: 0.5rem;
 }
-@media (min-width: 768px) {
-  .app {
-    max-width: 520px;
-  }
+#selectedMoodText {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1.4rem;
+  color: #333;
 }
