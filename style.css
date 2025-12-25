@@ -95,3 +95,42 @@ body {
   font-size: 0.85rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.04);
 }
+.score {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #eef2ff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#scoreValue {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-top: 0.5rem;
+}
+
+.history {
+  margin-top: 1.5rem;
+}
+
+.history h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.history ul {
+  list-style: none;
+}
+
+.history li {
+  background: #ffffff;
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
