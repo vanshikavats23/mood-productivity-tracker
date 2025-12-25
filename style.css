@@ -70,3 +70,28 @@ body {
   font-size: 1rem;
   color: #333;
 }
+.suggestions {
+  margin-top: 1.5rem;
+  background: #f9fafc;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.suggestions h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.suggestions ul {
+  list-style: none;
+}
+
+.suggestions li {
+  background: #ffffff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
