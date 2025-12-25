@@ -11,24 +11,33 @@
   font-family: system-ui, sans-serif;
 }
 body {
-  background: #f5f7fb;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 4rem 1rem;
+  background: radial-gradient(
+    1200px circle at top,
+    var(--accent-soft),
+    #f5f7fb 55%
+  );
+  transition: background 0.6s ease;
 }
-
 
 
 .app {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
   width: 100%;
-  max-width: 520px;
-  padding: 2.2rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  max-width: 540px;
+  padding: 2.5rem 2.2rem;
+  border-radius: 24px;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  position: relative;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -189,6 +198,34 @@ button:hover {
 
 /* Mood card click feel */
 .mood-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.mood-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.mood-card.active::after {
+  animation: shine 0.8s ease;
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.mood-card {
   transition: all 0.25s ease;
 }
 .empty-state {
@@ -204,4 +241,55 @@ button:hover {
   margin-top: 0.4rem;
   color: #777;
 }
+/* ===== Page Transitions ===== */
 
+.page {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: pageEnter 0.45s ease forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-exit {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: all 0.35s ease;
+}
+
+.ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      var(--accent) calc(var(--progress) * 1%),
+      #e5e7eb 0
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 0;
+  position: relative;
+}
+
+.ring::before {
+  content: "";
+  width: 110px;
+  height: 110px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.ring span {
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}

@@ -29,3 +29,8 @@ if (history.length > 0) {
   bestDayInsight.textContent =
     `Your highest productivity was on ${bestDay.date} with score ${bestDay.score}.`;
 }
+document.documentElement.style.setProperty(
+  "--progress",
+  today.score
+);
+

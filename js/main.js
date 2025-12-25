@@ -68,11 +68,23 @@ function applyMoodTheme(mood) {
   const root = document.documentElement;
 
   const themes = {
-    happy:   { accent: "#16a34a", soft: "#dcfce7" },
-    neutral: { accent: "#4f46e5", soft: "#eef2ff" },
-    low:     { accent: "#0284c7", soft: "#e0f2fe" },
-    stressed:{ accent: "#dc2626", soft: "#fee2e2" }
-  };
+  happy: {
+    accent: "#16a34a",
+    soft: "#dcfce7"
+  },
+  neutral: {
+    accent: "#4f46e5",
+    soft: "#eef2ff"
+  },
+  low: {
+    accent: "#0284c7",
+    soft: "#e0f2fe"
+  },
+  stressed: {
+    accent: "#dc2626",
+    soft: "#fee2e2"
+  }
+};
 
   root.style.setProperty("--accent", themes[mood].accent);
   root.style.setProperty("--accent-soft", themes[mood].soft);
