@@ -8,36 +8,64 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="card">
+<!-- TOP BAR -->
+<header class="topbar">
+  <h1 id="focusTitle">Focus Mode</h1>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+</header>
 
-    <h1 id="focusTitle">Focus Mode</h1>
-    <p class="subtitle">Work calmly, one step at a time</p>
+<!-- FULLSCREEN DASHBOARD -->
+<main class="focus-layout">
 
-    <div class="section">
-      <h3>Suggested Focus</h3>
-      <div id="taskList" class="task-list"></div>
-    </div>
+  <!-- LEFT: TASKS -->
+   <section class="panel tasks-panel">
+  <h2>Suggested Focus</h2>
+  <div id="taskList" class="task-list"></div>
 
-    <div class="section center">
-      <div class="timer" id="timer">25:00</div>
-      <button id="startTimer" class="secondary">
-        Start Focus
-      </button>
-    </div>
+  <h3 class="custom-title">Your Tasks</h3>
 
-    <div class="section">
-      <h3>Reflection</h3>
-      <textarea id="note" placeholder="How did this session feel?"></textarea>
-    </div>
-
-    <button id="saveSession" class="primary">
-      Save Session
-    </button>
-
+  <div class="custom-task-input">
+    <input
+      type="text"
+      id="customTaskInput"
+      placeholder="Add a task..."
+    />
+    <button id="addTaskBtn">Add</button>
   </div>
-</div>
+
+  <div id="customTaskList" class="task-list custom-list"></div>
+</section>
+
+  <!-- CENTER: TIMER HERO -->
+  <section class="panel timer-panel">
+
+    <div class="ring" id="progressRing">
+      <span id="timeDisplay">25:00</span>
+    </div>
+
+    <div class="timer-mode">
+      <button id="timerModeBtn" class="mode-btn active">Timer</button>
+      <button id="stopwatchModeBtn" class="mode-btn">Stopwatch</button>
+    </div>
+
+    <div class="timer-controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+  </section>
+
+  <!-- RIGHT: REFLECTION -->
+  <section class="panel reflection-panel">
+    <h2>Reflection</h2>
+    <textarea id="note" placeholder="How did this session feel?"></textarea>
+    <button id="saveSession" class="primary">Save Session</button>
+  </section>
+
+</main>
 
 <script src="js/focus.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

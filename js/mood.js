@@ -1,3 +1,7 @@
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  location.href = "auth.html";
+}
+
 const moods = document.querySelectorAll(".mood");
 const btn = document.getElementById("continueBtn");
 

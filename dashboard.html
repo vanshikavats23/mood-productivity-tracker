@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,35 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="card">
+<header class="topbar">
+  <h1 id="greeting"></h1>
+  <button id="logoutBtn" class="secondary">Logout</button>
+</header>
 
-    <h1>Dashboard</h1>
-    <p class="subtitle">Your latest productivity snapshot</p>
+<main class="user-dashboard">
 
-    <div class="score-box">
-      <span id="score">--</span>
-      <p>Productivity Score</p>
-    </div>
+  <section class="dash-card">
+    <h3>Today's Mood</h3>
+    <p id="todayMood">Not set</p>
+  </section>
 
-    <p id="summary" class="summary-text"></p>
+  <section class="dash-card">
+    <h3>Total Focus Sessions</h3>
+    <p id="totalSessions">0</p>
+  </section>
 
-    <a href="index.html" class="link-btn">Start New Day</a>
+  <section class="dash-card">
+    <h3>Last Session Duration</h3>
+    <p id="lastDuration">—</p>
+  </section>
 
-  </div>
-</div>
+  <a href="index.html" class="primary start-btn">
+    Start Today
+  </a>
+
+</main>
 
 <script src="js/dashboard.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

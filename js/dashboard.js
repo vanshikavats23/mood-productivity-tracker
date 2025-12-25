@@ -1,9 +1,22 @@
-const data = JSON.parse(localStorage.getItem("lastSession"));
-
-if (!data) {
-  document.getElementById("summary").textContent = "No data yet.";
-} else {
-  document.getElementById("score").textContent = data.score;
-  document.getElementById("summary").textContent =
-    `You worked in a "${data.mood}" state on ${data.date}.`;
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  location.href = "auth.html";
 }
+
+const user = JSON.parse(localStorage.getItem("user"));
+document.getElementById("greeting").textContent =
+  `Welcome, ${user.name}`;
+
+const sessions = JSON.parse(localStorage.getItem("sessionHistory")) || [];
+
+document.getElementById("totalSessions").textContent = sessions.length;
+
+if (sessions.length > 0) {
+  const last = sessions[sessions.length - 1];
+  document.getElementById("todayMood").textContent = last.mood;
+  document.getElementById("lastDuration").textContent = last.duration;
+}
+
+document.getElementById("logoutBtn").onclick = () => {
+  localStorage.setItem("isLoggedIn", "false");
+  location.href = "auth.html";
+};

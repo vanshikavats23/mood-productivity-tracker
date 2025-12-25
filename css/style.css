@@ -1,3 +1,21 @@
+:root {
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text-main: #111111;
+  --text-sub: #666666;
+  --accent: #5b5ce2;
+  --muted: #f1f2f6;
+}
+
+body.dark {
+  --bg: #0f1220;
+  --card-bg: #171a2b;
+  --text-main: #f1f1f1;
+  --text-sub: #a1a1b3;
+  --accent: #7c7cff;
+  --muted: #232645;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +24,7 @@
 }
 
 body {
-  background: #f4f6fb;
+  background: var(--bg);
 }
 
 .container {
@@ -17,14 +35,7 @@ body {
   padding: 2rem;
 }
 
-.card {
-  background: #fff;
-  width: 100%;
-  max-width: 420px;
-  padding: 2.5rem;
-  border-radius: 22px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-}
+
 
 h1 {
   font-size: 1.7rem;
@@ -32,7 +43,7 @@ h1 {
 }
 
 .subtitle {
-  color: #666;
+  color: var(--text-sub);
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
@@ -49,14 +60,14 @@ h1 {
   padding: 1rem;
   border-radius: 14px;
   border: none;
-  background: #f1f2f6;
+  background: var(--muted);
   font-size: 0.95rem;
   cursor: pointer;
 }
 
 .mood.active {
-  background: #5b5ce2;
-  color: #fff;
+  background: var(--accent);
+  color: var(--card-bg);
 }
 
 /* Sections */
@@ -74,8 +85,8 @@ h1 {
   padding: 1rem;
   border-radius: 16px;
   border: none;
-  background: #5b5ce2;
-  color: #fff;
+  background: var(--accent);
+  color: var(--card-bg);
   font-size: 1rem;
   cursor: pointer;
 }
@@ -87,21 +98,23 @@ h1 {
 .secondary {
   padding: 0.8rem 1.4rem;
   border-radius: 14px;
-  border: 2px solid #5b5ce2;
+  border: 2px solid var(--accent);
   background: transparent;
-  color: #5b5ce2;
+  color: var(--accent);
   cursor: pointer;
 }
 
 /* Tasks */
 .task-list {
-  display: grid;
-  gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .task-list div {
   background: #f7f8fc;
-  padding: 0.9rem;
+  padding: 0.9rem 1rem;
+  line-height: 1.4;
   border-radius: 12px;
   font-size: 0.9rem;
 }
@@ -131,7 +144,7 @@ textarea {
 .score-box span {
   font-size: 3rem;
   font-weight: 700;
-  color: #5b5ce2;
+  color: var(--accent);
 }
 
 .summary-text {
@@ -144,6 +157,418 @@ textarea {
   display: block;
   text-align: center;
   text-decoration: none;
-  color: #5b5ce2;
+  color: var(--accent);
   font-weight: 500;
+}
+
+h1, h3, p, span {
+  color: var(--text-main);
+}
+.theme-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  border: none;
+  background: var(--muted);
+  color: var(--text-main);
+  padding: 0.5rem 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Timer / Stopwatch */
+
+.timer-mode {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.mode-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ===== TIMER HERO ===== */
+
+.timer-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0 3rem;
+}
+
+/* Circular Ring */
+.ring {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0deg,
+    rgba(255,255,255,0.15) 0deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+/* Inner circle */
+.ring::before {
+  content: "";
+  width: 140px;
+  height: 140px;
+  background: var(--card-bg);
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Time text */
+#timeDisplay {
+  position: relative;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent); /* FIXES DARK MODE */
+}
+
+/* Mode switch */
+.timer-mode {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.mode-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Controls */
+.timer-controls {
+  display: flex;
+  gap: 0.8rem;
+}
+/* ===== FULL SCREEN RESET ===== */
+body {
+  margin: 0;
+  background: var(--bg);
+  height: 100vh;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  height: 64px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.topbar h1 {
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+/* ===== MAIN LAYOUT ===== */
+.focus-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  height: calc(100vh - 64px);
+}
+
+/* ===== PANELS ===== */
+.panel {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* LEFT PANEL */
+.tasks-panel {
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.tasks-panel h2 {
+  margin-bottom: 1.2rem;
+}
+
+/* TASKS */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.task-list div {
+  padding: 0.9rem 1rem;
+  background: var(--muted);
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+/* CENTER TIMER PANEL */
+.timer-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TIMER RING */
+.ring {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0deg,
+    rgba(255,255,255,0.12) 0deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.ring::before {
+  content: "";
+  width: 170px;
+  height: 170px;
+  background: var(--card-bg);
+  border-radius: 50%;
+  position: absolute;
+}
+
+#timeDisplay {
+  position: relative;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* TIMER CONTROLS */
+.timer-mode {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.mode-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.timer-controls button {
+  padding: 0.6rem 1.4rem;
+  border-radius: 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* RIGHT PANEL */
+.reflection-panel {
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.reflection-panel h2 {
+  margin-bottom: 1rem;
+}
+
+.reflection-panel textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--muted);
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.primary {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+/* ===== MANUAL TASKS ===== */
+
+.custom-title {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+}
+
+.custom-task-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-task-input input {
+  flex: 1;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--muted);
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+.custom-task-input input::placeholder {
+  color: var(--text-sub);
+}
+
+.custom-task-input button {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Custom task list style tweak */
+.custom-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-list button {
+  background: transparent;
+  border: none;
+  color: var(--text-sub);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+/* ================= AUTH PAGE ================= */
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.auth-card h1 {
+  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+}
+
+.auth-card .subtitle {
+  margin-bottom: 2rem;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--muted);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.auth-card input::placeholder {
+  color: var(--text-sub);
+}
+
+/* Button */
+.auth-card .primary {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+/* Switch login/signup */
+.switch-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+.switch-text button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 0.3rem;
 }
