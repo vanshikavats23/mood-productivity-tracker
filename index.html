@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood-Based Productivity Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <header class="header">
+      <h1>How are you feeling today?</h1>
+      <p>Select your current mood to get productivity suggestions</p>
+    </header>
+
+    <section class="mood-container">
+      <div class="mood-card" data-mood="happy">😊 Happy</div>
+      <div class="mood-card" data-mood="neutral">😐 Neutral</div>
+      <div class="mood-card" data-mood="low">😔 Low</div>
+      <div class="mood-card" data-mood="stressed">😠 Stressed</div>
+    </section>
+
+    <section class="output">
+      <h2 id="selectedMoodText">No mood selected</h2>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
