@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h1 id="focusTitle">Focus Mode</h1>
+    <p class="subtitle">Work calmly, one step at a time</p>
+
+    <div class="section">
+      <h3>Suggested Focus</h3>
+      <div id="taskList" class="task-list"></div>
+    </div>
+
+    <div class="section center">
+      <div class="timer" id="timer">25:00</div>
+      <button id="startTimer" class="secondary">
+        Start Focus
+      </button>
+    </div>
+
+    <div class="section">
+      <h3>Reflection</h3>
+      <textarea id="note" placeholder="How did this session feel?"></textarea>
+    </div>
+
+    <button id="saveSession" class="primary">
+      Save Session
+    </button>
+
+  </div>
+</div>
+
+<script src="js/focus.js"></script>
+</body>
+</html>

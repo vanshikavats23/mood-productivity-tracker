@@ -1,16 +1,7 @@
-const links = document.querySelectorAll(".nav a");
-
-links.forEach(link => {
-  link.addEventListener("click", e => {
+document.querySelectorAll(".nav a").forEach(link => {
+  link.onclick = e => {
     e.preventDefault();
-
-    const target = link.getAttribute("href");
-    const page = document.querySelector(".page");
-
-    page.classList.add("page-exit");
-
-    setTimeout(() => {
-      window.location.href = target;
-    }, 300);
-  });
+    document.querySelector(".page").style.opacity = 0;
+    setTimeout(() => location.href = link.href, 250);
+  };
 });

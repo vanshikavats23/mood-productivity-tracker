@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <main class="app page">
-    <nav class="nav">
-      <a href="index.html">Today</a>
-      <a class="active" href="dashboard.html">Dashboard</a>
-      <a href="history.html">History</a>
-    </nav>
+<div class="container">
+  <div class="card">
 
-    <h2>Productivity Dashboard</h2>
-<section class="score">
-  <h3>Today's Productivity</h3>
+    <h1>Dashboard</h1>
+    <p class="subtitle">Your latest productivity snapshot</p>
 
-  <div class="ring">
-    <span id="scoreValue">--</span>
+    <div class="score-box">
+      <span id="score">--</span>
+      <p>Productivity Score</p>
+    </div>
+
+    <p id="summary" class="summary-text"></p>
+
+    <a href="index.html" class="link-btn">Start New Day</a>
+
   </div>
-</section>
+</div>
 
-
-    <section class="insights">
-      <h3>Weekly Insights</h3>
-      <p id="moodInsight"></p>
-      <p id="bestDayInsight"></p>
-    </section>
-  </main>
-
-  <script src="js/dashboard.js"></script>
-  <script src="js/navigation.js"></script>
-
+<script src="js/dashboard.js"></script>
 </body>
 </html>

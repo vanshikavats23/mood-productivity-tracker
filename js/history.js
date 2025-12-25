@@ -1,11 +1,8 @@
 const history = JSON.parse(localStorage.getItem("moodHistory")) || [];
-const historyList = document.getElementById("historyList");
+const list = document.getElementById("historyList");
 
-history.slice().reverse().forEach(entry => {
+history.slice().reverse().forEach(e => {
   const li = document.createElement("li");
-  li.innerHTML = `
-    <span>${entry.date} — ${entry.mood}</span>
-    <strong>${entry.score}</strong>
-  `;
-  historyList.appendChild(li);
+  li.innerHTML = `<span>${e.date} — ${e.mood}</span><strong>${e.score}</strong>`;
+  list.appendChild(li);
 });

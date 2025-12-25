@@ -2,49 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Today's Mood</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Today</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <main class="app page">
-    <nav class="nav">
-      <a class="active" href="index.html">Today</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="history.html">History</a>
-    </nav>
+<div class="container">
+  <div class="card">
 
-    <header class="header">
-      <h1>How are you feeling today?</h1>
-      <p>Select your mood to get productivity suggestions</p>
-    </header>
+    <h1>How are you feeling today?</h1>
+    <p class="subtitle">Your mood sets the tone for your work</p>
 
-    <section class="mood-container">
-      <div class="mood-card" data-mood="happy">😊 Happy</div>
-      <div class="mood-card" data-mood="neutral">😐 Neutral</div>
-      <div class="mood-card" data-mood="low">😔 Low</div>
-      <div class="mood-card" data-mood="stressed">😠 Stressed</div>
-    </section>
+    <div class="mood-grid">
+      <button class="mood" data-mood="happy">😊 Happy</button>
+      <button class="mood" data-mood="neutral">😐 Neutral</button>
+      <button class="mood" data-mood="low">😔 Low</button>
+      <button class="mood" data-mood="stressed">😠 Stressed</button>
+    </div>
 
-    <h3 id="selectedMoodText">No mood selected</h3>
-    <section class="suggestions">
-  <h3>Suggested Focus</h3>
+    <button id="continueBtn" class="primary" disabled>
+      Continue
+    </button>
 
-  <div id="emptyState" class="empty-state">
-    🌱  
-    <p>Select a mood to get suggestions</p>
   </div>
+</div>
 
-  <ul id="taskList"></ul>
-</section>
-
-
-    <button id="saveBtn">Save Today’s Mood</button>
-  </main>
-
-  <script src="js/main.js"></script>
-  <script src="js/navigation.js"></script>
-
+<script src="js/mood.js"></script>
 </body>
 </html>
